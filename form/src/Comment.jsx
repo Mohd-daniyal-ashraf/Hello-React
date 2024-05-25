@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Comment.css";
 export default function Comment() {
   let [commentdata, setCommentdata] = useState({
@@ -6,7 +6,6 @@ export default function Comment() {
     message: "",
     rating: "3",
   });
-
   let [arr, setArr] = useState([
     {
       username: "Mohd daniyal",
@@ -14,6 +13,12 @@ export default function Comment() {
       rating: "5",
     },
   ]);
+  useEffect(
+    function print() {
+      console.log("dffd");
+    },
+    [arr]
+  );
   let inputChange = (event) => {
     setCommentdata((current) => {
       return { ...current, [event.target.name]: event.target.value };
