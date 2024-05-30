@@ -19,7 +19,7 @@ async function weatherData(city) {
     console.log(alldata);
     return alldata;
   } catch (err) {
-    alert("Please, enter a valid city");
+    console.log("error");
   }
 }
 export { weatherData };

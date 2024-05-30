@@ -6,6 +6,7 @@ import { weatherData } from "./helper.js";
 // --------------------------------------------------------------
 
 export default function Searchbox({ updateInfo }) {
+  let [error, setError] = useState(false);
   let [city, setCity] = useState("");
   let change = (e) => {
     setCity(e.target.value);
@@ -13,12 +14,15 @@ export default function Searchbox({ updateInfo }) {
 
   let handlesubmit = async (e) => {
     e.preventDefault();
-    console.log("Dcds");
     setCity("");
     let info = await weatherData(city);
     if (info) {
       updateInfo(info);
+      setError(false);
+    } else {
+      setError(true);
     }
+    console.log(error);
   };
 
   return (
@@ -37,6 +41,7 @@ export default function Searchbox({ updateInfo }) {
         <Button variant="contained" type="submit">
           Search
         </Button>
+        {error && <p style={{ color: "red" }}>No such Place exsit</p>}
       </form>
     </div>
   );
