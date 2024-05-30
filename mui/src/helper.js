@@ -5,6 +5,14 @@ async function weatherData(city) {
     `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
   );
   let jsondata = await response.json();
-  console.log(jsondata);
+  let alldata = {
+    temp: jsondata.main.temp,
+    mintemp: jsondata.main.temp_min,
+    maxtemp: jsondata.main.temp_max,
+    humidity: jsondata.main.humidity,
+    feelslike: jsondata.main.feels_like,
+    weather: jsondata.weather[0].description,
+  };
+  console.log(alldata);
 }
 export { weatherData };
