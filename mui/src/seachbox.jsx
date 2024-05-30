@@ -22,7 +22,6 @@ export default function Searchbox({ updateInfo }) {
     } else {
       setError(true);
     }
-    console.log(error);
   };
 
   return (

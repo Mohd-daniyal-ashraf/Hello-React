@@ -16,10 +16,7 @@ async function weatherData(city) {
       feelslike: jsondata.main.feels_like,
       weather: jsondata.weather[0].description,
     };
-    console.log(alldata);
     return alldata;
-  } catch (err) {
-    console.log("error");
-  }
+  } catch (err) {}
 }
 export { weatherData };
