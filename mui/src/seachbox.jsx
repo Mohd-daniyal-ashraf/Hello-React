@@ -5,17 +5,20 @@ import { weatherData } from "./helper.js";
 
 // --------------------------------------------------------------
 
-export default function Searchbox() {
+export default function Searchbox({ updateInfo }) {
   let [city, setCity] = useState("");
   let change = (e) => {
     setCity(e.target.value);
   };
 
-  let handlesubmit = (e) => {
+  let handlesubmit = async (e) => {
     e.preventDefault();
     console.log("Dcds");
     setCity("");
-    weatherData(city);
+    let info = await weatherData(city);
+    if (info) {
+      updateInfo(info);
+    }
   };
 
   return (
@@ -30,6 +33,7 @@ export default function Searchbox() {
           required
         />
         <br /> <br />
+        <br />
         <Button variant="contained" type="submit">
           Search
         </Button>

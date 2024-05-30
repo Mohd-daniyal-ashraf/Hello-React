@@ -1,10 +1,10 @@
 import "./App.css";
-import Searchbox from "./seachbox";
+import Weatherapp from "./Weatherapp";
 function App() {
   return (
     <>
       <div className="weather-container">
-        <Searchbox />
+        <Weatherapp />
       </div>
     </>
   );
